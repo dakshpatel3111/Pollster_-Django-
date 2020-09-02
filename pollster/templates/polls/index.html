@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+{% block content%}
+<h1 class="text-center mb-3">Polls Question</h1>
+
+   {% for questions in lqt %}
+    <div class="card mb-3">
+       <div class="card-body">
+          <p class="lead">{{questions.question_text}}</p>
+           <a href="{% url 'polls:details' questions.id %}" class="btn btn-primary btn-sm">
+               Vote Now
+           </a>
+           <a href="{% url 'polls:results' questions.id %}" class="btn btn-secondary btn-sm">
+               results
+           </a>
+
+       </div>
+    </div>
+    {% endfor %}
+
+
+{% endblock %}
